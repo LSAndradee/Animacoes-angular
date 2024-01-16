@@ -5,6 +5,7 @@
     </button>
   </div>
   <form @shownState
+    [@shakeAnimation]="formulario.value"
     [@formButton]="formulario.valid ? 'valid' : 'invalid'"
     class="formulario ff-prompt"
     [formGroup]="formulario"
@@ -25,7 +26,7 @@
       formControlName="prioridade"
       [ngClass]="campoValidado('prioridade')"
     >
-      <option disabled value="">Selecione</option>
+      <option value="">Selecione</option>
       <option value="Alta">Alta</option>
       <option value="Normal">Normal</option>
       <option value="Baixa">Baixa</option>
@@ -39,7 +40,7 @@
       formControlName="categoria"
       [ngClass]="campoValidado('categoria')"
     >
-      <option disabled value="">Selecione</option>
+      <option value="">Selecione</option>
       <option value="Casa">Casa</option>
       <option value="Trabalho">Trabalho</option>
       <option value="Estudos">Estudos</option>
@@ -50,7 +51,6 @@
     </app-mensagem>
     <div class="botoes-form">
       <button
-        [@formButton]="formulario.valid ? 'valid' : 'invalid'"
         id="botao-salvar"
         (click)="salvarTarefa()"
         class="botao-form"
@@ -75,13 +75,13 @@
   <div class="busca">
     <p class="ff-prompt">Procurando o que fazer?</p>
     <input
-    type="search" id="campo-busca"
+    id="campo-busca" type="search"
     placeholder="Busque por uma tarefa"
     [(ngModel)]="campoBusca"
     (keyup)="filtrarTarefasPorDescricao(campoBusca)
     ">
   </div>
-  <div *ngIf="tarefasFiltradas.length > 0, else semTarefas">
+  <div @listState *ngIf="tarefasFiltradas.length > 0, else semTarefas">
     <div
       @filterAnimation
       class="lista-tarefas card-{{ tarefa.categoria }}"
@@ -101,8 +101,8 @@
         <p class="status-tarefa">
           <button
             [ngClass]="(tarefa.statusFinalizado == true) ? 'icone-checked' : 'icone-unchecked'"
-            (click)="finalizarTarefa(tarefa.id);"
-            [@checkButton]="(tarefa.id === id ? 'checked' : 'unchecked')">
+            (click)="finalizarTarefa(tarefa);"
+            [@checkButton]="tarefa.id === id && estadoBotao">
           </button>
         </p>
       </div>

@@ -25,15 +25,36 @@
       "id": 5,
       "descricao": "Trocar lâmpada",
       "categoria": "Casa",
-      "statusFinalizado": true,
+      "statusFinalizado": false,
       "prioridade": "Alta"
     },
     {
       "id": 6,
       "descricao": "Ler",
       "categoria": "Estudos",
-      "statusFinalizado": false,
+      "statusFinalizado": true,
       "prioridade": "Alta"
+    },
+    {
+      "id": 7,
+      "descricao": "sasas",
+      "statusFinalizado": false,
+      "categoria": "Casa",
+      "prioridade": "Alta"
+    },
+    {
+      "id": 8,
+      "descricao": "dssfdsfs",
+      "statusFinalizado": true,
+      "categoria": "Trabalho",
+      "prioridade": "Baixa"
+    },
+    {
+      "id": 11,
+      "descricao": "eita",
+      "categoria": "Casa",
+      "statusFinalizado": false,
+      "prioridade": "Normal"
     }
   ]
 }
